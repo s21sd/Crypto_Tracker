@@ -3,7 +3,7 @@ import React from 'react'
 import Lottie from "lottie-react";
 import Animation from "../assets/Animation - 1710193792835 (1).json"
 import './Custom.css'
-import Router, { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 const Landing = () => {
     const router = useRouter();
     return (

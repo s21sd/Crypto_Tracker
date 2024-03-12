@@ -1,0 +1,65 @@
+.notificationCard {
+    width: 420px;
+    height: 380px;
+    background: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 35px;
+    gap: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+    border-radius: 20px;
+}
+
+
+.notificationHeading {
+    color: black;
+    font-weight: 600;
+    font-size: 1.8em;
+}
+
+.notificationPara {
+    color: rgb(133, 133, 133);
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.AllowBtn {
+    width: 150px;
+    height: 35px;
+    background-color: #7c73f6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.NotnowBtn {
+    width: 150px;
+    height: 35px;
+    color: #7c73f6;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.NotnowBtn:hover {
+    background-color: #9a94ec;
+}
+
+.AllowBtn:hover {
+    background-color: #9a94ec;
+}

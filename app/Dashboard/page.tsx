@@ -90,12 +90,11 @@ const page = () => {
 
 
     }
-   
-    return (
-        <div className="main relative shadow-md rounded-2xl">
 
-           
-            <div className="maincontainer">
+    return (
+        <div className="main ">
+
+            <div className="maincontainer relative shadow-md rounded-2xl">
 
                 <div className="allcheckbox">
                     <div className="rangediv">
@@ -138,14 +137,19 @@ const page = () => {
 
             </div>
             {
-                password.length > 0 && !close ? <div className="absolute flex ml-[35%] mt-[10%]">
+                password.length > 0 && !close ? <div className="absolute flex ml-[35%] mt-[5%]">
 
                     <Popup password={password} close={close} setClose={setClose} />
                 </div>
                     : <></>
             }
 
+            {/* Here All the Password will Show */}
+            <div>
+                <h1>Your Passwords:</h1>
+            </div>
         </div>
+
 
     )
 

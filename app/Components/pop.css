@@ -1,5 +1,5 @@
 .notificationCard {
-    width: 420px;
+    width: 520px;
     height: 380px;
     background: rgb(245, 245, 245);
     display: flex;
@@ -29,6 +29,8 @@
 .buttonContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
 }
 

@@ -43,7 +43,7 @@ const Navbar = () => {
                 reverseOrder={false}
             />
             <div className="container mx-auto flex flex-wrap justify-between p-5 flex-col md:flex-row items-center">
-                <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <a onClick={() => router.push('/')} className="flex title-font font-medium items-center cursor-pointer text-white mb-4 md:mb-0">
                     <Image src={logo} alt='logo' width={80} height={80} />
                     <span className="ml-3 text-2xl">CryptoSafe</span>
                 </a>

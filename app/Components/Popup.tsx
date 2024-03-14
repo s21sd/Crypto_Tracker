@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import './pop.css'
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
-
 import CryptoJS from 'crypto-js';
 import { db, auth } from '../Utils/Firebase';
 import { addDoc, collection } from 'firebase/firestore';
@@ -50,8 +49,6 @@ const Popup = ({ password, close, setClose }: any) => {
         } catch (error: any) {
             toast.error(error);
         }
-
-
 
 
     }

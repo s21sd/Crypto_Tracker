@@ -1,22 +1,39 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Popup from "../Components/Popup";
-// import Passshow from "./Passshow";
+import Card from "../Components/Card";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../redux/store";
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../Utils/Firebase";
 
-
+type passType = {
+    encryptedPassword: string;
+    passName: string;
+    userId: string;
+}
 const page = () => {
     const [close, setClose] = useState<boolean>(false);
     const [password, setpassWord] = useState<string>("");
-
     const [lenght, setRangeValue] = useState(0);
     const [includeUpperChars, setIncludeUpperChars] = useState(false);
     const [includeLowerChars, setIncludeLowerChars] = useState(false);
     const [includeNumber, setIncludeNumbers] = useState(false);
     const [includeSpecialChars, setIncludeSpecialChars] = useState(false);
-
+    const authenticated = useAppSelector((state) => state.authReducer);
     const [strength, setStrength] = useState("");
-
-
+    const [firebasePass, setfirebasePass] = useState<passType[]>([])
+    const userId = authenticated.user?.user
+    const postCollectionRef = collection(db, `${userId}`)
+    // Retriving my all the password
+    const getPasswords = async () => {
+        const pass = await getDocs(postCollectionRef);
+        const newdata: passType[] = pass.docs.map((doc) => ({ userId: doc.id, ...doc.data() } as passType));
+        setfirebasePass(newdata);
+    }
+    useEffect(() => {
+        getPasswords();
+    }, [userId,password,close])
     const handleUpperChange = (event: any) => {
         setIncludeUpperChars(event.target.checked);
     }
@@ -34,9 +51,9 @@ const page = () => {
 
 
 
+
     const handleChages = (event: any) => {
         setRangeValue(event.target.value)
-        // console.log(lenght)
     };
 
     function generatePassword() {
@@ -146,7 +163,18 @@ const page = () => {
 
             {/* Here All the Password will Show */}
             <div>
-                <h1>Your Passwords:</h1>
+                <h1 className="font-bold text-2xl mt-12 ml-12">Your Passwords</h1>
+                <div className="flex justify-between gap-5 m-12 flex-wrap">
+
+                    {
+                        firebasePass.map((pass, index) => {
+                            return (
+                                <Card key={index} pass={pass} />
+                            )
+                        })
+                    }
+
+                </div>
             </div>
         </div>
 
